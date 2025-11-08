@@ -10,6 +10,8 @@ import java.util.List;
 
 public class TareaViewModel extends AndroidViewModel {
 
+    Tarea tareaSeleccionada;
+
     TareasRepositorio listTareas;
     MutableLiveData<List<Tarea>> listTareasMutableLiveData = new MutableLiveData<>();
 
@@ -21,6 +23,8 @@ public class TareaViewModel extends AndroidViewModel {
         //actualizo la variable muitable de la lista de tareas
         // para que si hay un observador pueda obtener su valor
         listTareasMutableLiveData.setValue(listTareas.obtener());
+        // Inicializo la variable tareaSeleccionada
+        tareaSeleccionada = new Tarea();
     }
 
     public MutableLiveData<List<Tarea>> obtener()
@@ -55,6 +59,15 @@ public class TareaViewModel extends AndroidViewModel {
                 listTareasMutableLiveData.setValue(elementos);
             }
         });
+    }
+
+    public Tarea getTareaSeleccionada(){
+        return tareaSeleccionada;
+    }
+
+    public void setTareaSeleccionada(String nombre, String descripcion){
+        tareaSeleccionada.descripcion = descripcion;
+        tareaSeleccionada.nombre = nombre;
     }
 
 }

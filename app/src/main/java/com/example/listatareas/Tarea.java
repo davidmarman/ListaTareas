@@ -10,4 +10,8 @@ public class Tarea {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
+
+    public  Tarea(){
+
+    }
 }

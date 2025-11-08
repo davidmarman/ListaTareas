@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -51,6 +52,9 @@ public class ListadoTareasFr extends Fragment {
             }
         });
 
+
+
+
         // crear el Adaptador
         ElementosAdapter elementosAdapter = new ElementosAdapter();
 
@@ -64,6 +68,22 @@ public class ListadoTareasFr extends Fragment {
                 elementosAdapter.establecerLista(elementos);
             }
         });
+
+        // Implementamos la opcion de Sweep para eliminar una tarea
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                int posicion = viewHolder.getBindingAdapterPosition();
+                Tarea tarea = elementosAdapter.elementos.get(posicion);
+                tareaViewModel.eliminar(tarea);
+            }
+        }).attachToRecyclerView(binding.recyclerView);
 
     }
 

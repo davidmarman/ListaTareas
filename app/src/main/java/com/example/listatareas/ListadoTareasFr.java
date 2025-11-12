@@ -106,6 +106,14 @@ public class ListadoTareasFr extends Fragment {
 
             holder.binding.nombre.setText(elemento.nombre);
             holder.binding.valoracion.setRating(elemento.valoracion);
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    tareaViewModel.setTareaSeleccionada(elemento); //TareaSeleccionada(elemento.nombre, elemento.valoracion);
+                    navController.navigate(R.id.action_listadoTareasFr_to_mostrarDetalleTareaFr);
+                }
+            });
         }
 
         @Override

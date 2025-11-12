@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -12,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.listatareas.databinding.FragmentMostrarDetalleTareaBinding;
+
+import java.util.List;
 
 
 public class MostrarDetalleTareaFr extends Fragment {
@@ -35,7 +39,20 @@ public class MostrarDetalleTareaFr extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         tareaViewModel = new ViewModelProvider(requireActivity()).get(TareaViewModel.class);
+        /*
+        tareaViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<Tarea> {
+            @Override
+            public void onChanged(Tarea tareas) {
 
+            }
+        });
+        */
+
+
+        // Esto funciona, pero solo sirve para visualizar datos. No funciona si lo que pretendemos es modificar los elementos
+        binding.descripcion.setText(tareaViewModel.getTareaSeleccionada().descripcion);
+        binding.nombre.setText(tareaViewModel.getTareaSeleccionada().nombre);
+        binding.valoracion.setRating(tareaViewModel.getTareaSeleccionada().valoracion);
 
     }
 }

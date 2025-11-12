@@ -14,7 +14,7 @@ public class TareaViewModel extends AndroidViewModel {
 
     TareasRepositorio listTareas;
     MutableLiveData<List<Tarea>> listTareasMutableLiveData = new MutableLiveData<>();
-
+    // Crear mutableLiveData para la tarea seleccionada
 
     public TareaViewModel(@NonNull Application application) {
         super(application);
@@ -24,7 +24,7 @@ public class TareaViewModel extends AndroidViewModel {
         // para que si hay un observador pueda obtener su valor
         listTareasMutableLiveData.setValue(listTareas.obtener());
         // Inicializo la variable tareaSeleccionada
-        tareaSeleccionada = new Tarea();
+        //tareaSeleccionada = new Tarea();
     }
 
     public MutableLiveData<List<Tarea>> obtener()
@@ -65,9 +65,10 @@ public class TareaViewModel extends AndroidViewModel {
         return tareaSeleccionada;
     }
 
-    public void setTareaSeleccionada(String nombre, String descripcion){
-        tareaSeleccionada.descripcion = descripcion;
-        tareaSeleccionada.nombre = nombre;
+    public void setTareaSeleccionada(Tarea tarea){
+        tareaSeleccionada = tarea;
+
+
     }
 
 }

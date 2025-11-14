@@ -39,20 +39,23 @@ public class MostrarDetalleTareaFr extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         tareaViewModel = new ViewModelProvider(requireActivity()).get(TareaViewModel.class);
-        /*
-        tareaViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<Tarea> {
-            @Override
-            public void onChanged(Tarea tareas) {
 
+        tareaViewModel.getTareaSeleccionada().observe(getViewLifecycleOwner(), new Observer<Tarea>() {
+            @Override
+            public void onChanged(Tarea tarea) {
+                binding.descripcion.setText(tareaViewModel.getTareaSeleccionada().getValue().descripcion);
+                binding.nombre.setText(tareaViewModel.getTareaSeleccionada().getValue().nombre);
+                binding.valoracion.setRating(tareaViewModel.getTareaSeleccionada().getValue().valoracion);
             }
         });
-        */
 
 
-        // Esto funciona, pero solo sirve para visualizar datos. No funciona si lo que pretendemos es modificar los elementos
+
+        /*
+        Esto funciona, pero solo sirve para visualizar datos. No funciona si lo que pretendemos es modificar los elementos
         binding.descripcion.setText(tareaViewModel.getTareaSeleccionada().descripcion);
         binding.nombre.setText(tareaViewModel.getTareaSeleccionada().nombre);
         binding.valoracion.setRating(tareaViewModel.getTareaSeleccionada().valoracion);
-
+        */
     }
 }

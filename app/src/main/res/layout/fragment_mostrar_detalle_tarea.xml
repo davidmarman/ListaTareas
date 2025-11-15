@@ -5,22 +5,32 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
 android:padding="16dp"
+    android:layout_margin="16dp"
 tools:context=".MostrarDetalleTareaFr">
 
-<TextView
-    android:id="@+id/nombre"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="48sp"/>
-<RatingBar
-    android:id="@+id/valoracion"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:numStars="5"/>
-<TextView
-    android:id="@+id/descripcion"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="24sp"/>
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"/>
+    <RatingBar
+        android:id="@+id/valoracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
+        android:numStars="5"/>
+    <TextView
+        android:id="@+id/descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/btnEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8EC7C2"
+        android:layout_gravity="center_horizontal"
+        android:text="Modificar Tarea"/>
 
 </LinearLayout>

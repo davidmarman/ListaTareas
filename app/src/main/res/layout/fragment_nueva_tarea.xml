@@ -21,5 +21,6 @@ tools:context=".NuevaTareaFr">
     android:id="@+id/crear"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:backgroundTint="#8EC7C2"
     android:text="CREAR"/>
 </LinearLayout>

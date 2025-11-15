@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editarTareaFr">
+
+    <EditText
+        android:id="@+id/editarNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editarDescripcion"
+        />
+
+    <EditText
+        android:id="@+id/editarDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripcion"
+        app:layout_constraintTop_toBottomOf="@+id/editarNombre"
+        app:layout_constraintBottom_toTopOf="@id/ratingEdit"/>
+
+    <TextView
+        android:id="@+id/txtRatingEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valoracion"
+        app:layout_constraintBottom_toTopOf="@id/ratingEdit"
+        android:textSize="18dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <RatingBar
+        android:id="@+id/ratingEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8EC7C2"
+        app:layout_constraintTop_toBottomOf="@+id/editarDescripcion"
+        app:layout_constraintBottom_toTopOf="@id/btnGuardarEdit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+    <Button
+        android:id="@+id/btnGuardarEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar Cambios"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="#8EC7C2"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,7 @@ public class MostrarDetalleTareaFr extends Fragment {
 
     private FragmentMostrarDetalleTareaBinding binding;
     private TareaViewModel tareaViewModel;
+    private NavController navController;
 
 
     @Override
@@ -41,6 +44,8 @@ public class MostrarDetalleTareaFr extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         tareaViewModel = new ViewModelProvider(requireActivity()).get(TareaViewModel.class);
 
+        navController = Navigation.findNavController(view);
+
         tareaViewModel.getTareaSeleccionada().observe(getViewLifecycleOwner(), new Observer<Tarea>() {
             @Override
             public void onChanged(Tarea tarea) {
@@ -48,12 +53,10 @@ public class MostrarDetalleTareaFr extends Fragment {
                 binding.nombre.setText(tareaViewModel.getTareaSeleccionada().getValue().nombre);
                 binding.valoracion.setRating(tareaViewModel.getTareaSeleccionada().getValue().valoracion);
 
-                binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                binding.btnEditar.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                        if (fromUser){
-                            tareaViewModel.actualizar(tarea,rating);
-                        }
+                    public void onClick(View v) {
+                        navController.navigate(R.id.action_mostrarDetalleTareaFr_to_editarTareaFr2);
                     }
                 });
             }

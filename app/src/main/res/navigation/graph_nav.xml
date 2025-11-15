@@ -9,7 +9,11 @@
         android:id="@+id/mostrarDetalleTareaFr"
         android:name="com.example.listatareas.MostrarDetalleTareaFr"
         android:label="fragment_mostrar_detalle_tarea"
-        tools:layout="@layout/fragment_mostrar_detalle_tarea" />
+        tools:layout="@layout/fragment_mostrar_detalle_tarea" >
+        <action
+            android:id="@+id/action_mostrarDetalleTareaFr_to_editarTareaFr2"
+            app:destination="@id/editarTareaFr" />
+    </fragment>
     <fragment
         android:id="@+id/nuevaTareaFr"
         android:name="com.example.listatareas.NuevaTareaFr"
@@ -27,4 +31,9 @@
             android:id="@+id/action_listadoTareasFr_to_nuevaTareaFr"
             app:destination="@id/nuevaTareaFr" />
     </fragment>
+    <fragment
+        android:id="@+id/editarTareaFr"
+        android:name="com.example.listatareas.editarTareaFr"
+        android:label="fragment_editar_tarea"
+        tools:layout="@layout/fragment_editar_tarea" />
 </navigation>

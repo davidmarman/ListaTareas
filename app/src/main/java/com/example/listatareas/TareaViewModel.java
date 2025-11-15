@@ -52,11 +52,12 @@ public class TareaViewModel extends AndroidViewModel {
         });
     }
 
-    void actualizar(Tarea elemento, float valoracion){
-        listTareas.actualizar(elemento, valoracion, new TareasRepositorio.Callback() {
+    void actualizar(Tarea elemento){
+        listTareas.actualizar(elemento,  new TareasRepositorio.Callback() {
             @Override
             public void notificarCambios(List<Tarea> elementos) {
                 listTareasMutableLiveData.setValue(elementos);
+                tareaSeleccionada.setValue(elemento);
             }
         });
     }

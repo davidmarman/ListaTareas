@@ -41,8 +41,8 @@ public class TareasRepositorio {
         callback.notificarCambios(tareas);
     }
 
-    void actualizar(Tarea elemento, float valoracion, Callback callback) {
-        elemento.valoracion = valoracion;
+    void actualizar(Tarea elemento,  Callback callback) {
+
         callback.notificarCambios(tareas);
     }
 

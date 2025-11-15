@@ -1,6 +1,9 @@
 package com.example.listatareas;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,10 +14,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.listatareas.databinding.FragmentListadoTareasBinding;
 import com.example.listatareas.databinding.ViewholderElementoBinding;
@@ -106,6 +105,7 @@ public class ListadoTareasFr extends Fragment {
 
             holder.binding.nombre.setText(elemento.nombre);
             holder.binding.valoracion.setRating(elemento.valoracion);
+
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

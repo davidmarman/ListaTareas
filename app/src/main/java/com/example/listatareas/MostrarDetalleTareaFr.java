@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 
 import com.example.listatareas.databinding.FragmentMostrarDetalleTareaBinding;
 
@@ -46,6 +47,15 @@ public class MostrarDetalleTareaFr extends Fragment {
                 binding.descripcion.setText(tareaViewModel.getTareaSeleccionada().getValue().descripcion);
                 binding.nombre.setText(tareaViewModel.getTareaSeleccionada().getValue().nombre);
                 binding.valoracion.setRating(tareaViewModel.getTareaSeleccionada().getValue().valoracion);
+
+                binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                    @Override
+                    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                        if (fromUser){
+                            tareaViewModel.actualizar(tarea,rating);
+                        }
+                    }
+                });
             }
         });
 
